@@ -19,3 +19,11 @@ Beats (included in the modern elastic stack. It was not used in the ELK Stack): 
 
 * Logstash: data processor. receive, transform and send data. (collect data in real time from several places). it transforms the data. *The use is being decreased. Rarely it is being used. It was replaced for the Beats
 ```
+
+Infos:
+```
+Kibana address: http://localhost:5601/
+
+Heartbeat: verify the uptime of the services
+Metricbeat: get the metrics from docker, host, etc.
+APM: Traceability
