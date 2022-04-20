@@ -47,7 +47,17 @@ services:
       - observability
     command: -e --strict.perms=false
     
-    
+  heartbeat:
+    image: docker.elastic.co/beats/heartbeat:7.13.0
+    container_name: heartbeat
+    volumes:      
+    - ./beats/heartbeat/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml
+    environment: 
+    - setup.kibana.host=kibana:5601
+    networks: 
+      - observability
+    command: -e --strict.perms=false
+
 
 networks:
   observability:
