@@ -10,7 +10,7 @@ Pillars:
 3) Tracing
 ```
 
-Elastic Stack: Elastic 
+Elastic Stack:
 
 ```
 Elasticsearch: search engine and analytics (too fast, working with index, scalable, distributed, apirest, website searchs, logging, etc)
