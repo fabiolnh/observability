@@ -27,6 +27,7 @@ Kibana address: http://localhost:5601/
 Heartbeat: verify the uptime of the services
 Metricbeat: get the metrics from docker, host, etc.
 APM: Traceability
+```
 
 Example Log:
 ```
