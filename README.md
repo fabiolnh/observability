@@ -45,7 +45,8 @@ Example Log:
     "traceId": "..."
   },
   "data": {
-    "duration": "0.139s"
+    "duration": "0.139s",
+    "attrubuteRequestExample": "teste"
   },
   "exception": {
     "name": "io.micronaut.http.client.exceptions.HttpClientResponseException",
