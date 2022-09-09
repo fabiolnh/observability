@@ -27,3 +27,30 @@ Kibana address: http://localhost:5601/
 Heartbeat: verify the uptime of the services
 Metricbeat: get the metrics from docker, host, etc.
 APM: Traceability
+
+Example Log:
+```
+{
+  "message": "...",
+  "logger": "com.fabiolnh.api.common.Teste",
+  "level": "INFO",
+  "context": {
+    "path": "/api/v1/teste/abc",
+    "method": "POST",
+    "port": "8080",
+    "serviceName": "core",
+    "externalService": "test",
+    "spanId": "...",
+    "traceId": "..."
+  },
+  "data": {
+    "duration": "0.139s"
+  },
+  "exception": {
+    "name": "io.micronaut.http.client.exceptions.HttpClientResponseException",
+    "message": "",
+    "stackTrace": "",
+   },
+  "timestamp": "2022-09-09T18:43:00.768Z"
+}
+```
