@@ -13,9 +13,9 @@ Pillars:
 Elastic Stack:
 
 ```
-Elasticsearch: search engine and analytics (too fast, working with index, scalable, distributed, apirest, website searchs, logging, etc)
-Kibana: elasticsearch data visualizer. It is to visualize logs, monitoring, operational intelligence. Integrated with the elasticsearch. aggregate and filter data. dashboards, interative graphics, maps, 
-Beats (included in the modern elastic stack. It was not used in the ELK Stack): It is integrated with the elasticstack. it is a data collector. It sends the data to log stash or directly to elasticsearch. It collects logs, metrics, network data, audit data, uptime monitoring
+Elasticsearch: search engine and analytics (too fast, working with index, scalable, distributed, apirest, website searches, logging, etc)
+Kibana: elasticsearch data visualizer. It is to visualize logs, monitoring, and operational intelligence. Integrated with the elasticsearch. aggregate and filter data. dashboards, interactive graphics, maps, 
+Beats (included in the modern elastic stack. It was not used in the ELK Stack): It is integrated with the elastic stack. It is a data collector. It sends the data to log stash or directly to elasticsearch. It collects logs, metrics, network data, audit data, uptime monitoring
 
 * Logstash: data processor. receive, transform and send data. (collect data in real time from several places). it transforms the data. *The use is being decreased. Rarely it is being used. It was replaced for the Beats
 ```
