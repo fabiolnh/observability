@@ -27,6 +27,7 @@ Kibana address: http://localhost:5601/
 Heartbeat: verify the uptime of the services
 Metricbeat: get the metrics from docker, host, etc.
 APM: Traceability (from Front-end (using the RUM - 'real user monitoring' - a javascript lib) to all the micro services, including SQL queries, etc). Logs can be included, too.
+Filebeat: send logs from the application through a service running in a Docker or in a a DaemonSet in Kubernetes, directly to Elasticsearch
 ```
 
 Example Log:
