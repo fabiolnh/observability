@@ -1,0 +1,15 @@
+version: "3"
+services:
+  demo:
+    build:
+      dockerfile: Dockerfile
+    image: demo:latest
+    container_name: demo
+    ports:
+      - "8080:8080"
+    networks:
+      - observability_observability
+networks:
+  observability_observability:
+    external: true
+    driver: bridge
