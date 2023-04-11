@@ -57,3 +57,6 @@ Example Log:
   "timestamp": "2022-09-09T18:43:00.768Z"
 }
 ```
+
+OBS: You can use Elastic Cloud to configure the whole environment using the cloud (GCP, AWS or Azure)
+- https://www.elastic.co/pt/cloud/
