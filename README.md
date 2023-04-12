@@ -76,9 +76,9 @@ OBS: You can use Elastic Cloud to configure the whole environment using the clou
 - the /metrics needs to have the format that the prometheus understands (using libs)
 - The metrics can be collected from MySQL, NgInx, Linux Server, etc. using "Exporters" (the exporters is like an interface that creates the /metrics not only from apps). There are exporters for several technologies
 - Architecture: 
--     * Time Series Database (faster than traditional databases), 
--     * HttpServer (to extract information from prometheus and use it)
--     * Retrieval (receive the information and save into database)
-      * It can access the service discovery to get the information of new pods from kubernetes, as an example.
--     * Push Gateway: a local that can receive information from apps (ex: in cases that you deploy an application that stays online during 30 minutes and no more than that)
--     * AlertManager: it connects to HttpServer from prometheus and configures alerts, like send an email, 
+     * Time Series Database (faster than traditional databases), 
+     * HttpServer (to extract information from prometheus and use it)
+     * Retrieval (receive the information and save into database)
+     * It can access the service discovery to get the information of new pods from kubernetes, as an example.
+     * Push Gateway: a local that can receive information from apps (ex: in cases that you deploy an application that stays online during 30 minutes and no more than that)
+     * AlertManager: it connects to HttpServer from prometheus and configures alerts, like send an email, 
