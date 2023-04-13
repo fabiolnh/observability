@@ -74,7 +74,7 @@ OBS: You can use Elastic Cloud to configure the whole environment using the clou
 - Integration Diversity
 - Differently from ElasticStack (that the App has an Agent that send the data to ElasticStack), Prometheus works with pull (through http, /metrics, Prometheus accesses the app and get the information that it needs)
 - the /metrics needs to have the format that the prometheus understands (using libs)
-- The metrics can be collected from MySQL, NgInx, Linux Server, etc. using "Exporters" (the exporters is like an interface that creates the /metrics not only from apps). There are exporters for several technologies
+- The metrics can be collected from MySQL, NgInx, Linux Server, Kafka, etc. (almost everything) using "Exporters" (the exporters is like an interface that creates the /metrics for these things). There are exporters for several technologies
 - Architecture: 
      * Time Series Database (faster than traditional databases), 
      * HttpServer (to extract information from prometheus and use it)
@@ -82,3 +82,25 @@ OBS: You can use Elastic Cloud to configure the whole environment using the clou
      * It can access the service discovery to get the information of new pods from kubernetes, as an example.
      * Push Gateway: a local that can receive information from apps (ex: in cases that you deploy an application that stays online during 30 minutes and no more than that)
      * AlertManager: it connects to HttpServer from prometheus and configures alerts, like send an email, 
+- Metrics:
+```
+     1) Counter: 
+      * Incremental Value (ex: visit number)
+      * In case the pod or the system shuts down, prometheus knows the last number and starts to sum it. So, you do not lose count.
+     2) Gauge:
+      * Values that change in time (ex: memory utilization, users that are online, etc)
+     3) Histogram:
+      * Measurement is sample-based
+      * Can aggregate values
+      * Ex: during a time, we can aggregate some information
+     4) Summary:
+      * Similar to Histogram. Commonly, Summary is not used. We use Histogram.
+      * The difference: the values are calculated in the server, not in the Prometheus.
+      * Good to have approximate values. 
+      * Ex: Request Duration
+```
+- PromQL: The "SQL" of Prometheus. The language to query the prometheus. Usually there are autocomplete of these PromQL in Grafana Dashboards
+- The target (apps that will get the metrics) configuration stays in "prometheus.yml" file of prometheus
+- You can configurate a target of its own prometheus to get the metrics from it (from its HttpServer)
+- There is a web interface in prometheus, but not so good to interact. The best way is to use other app, such as Grafana
+- 
