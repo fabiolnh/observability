@@ -26,6 +26,7 @@ scrape_configs:
     - targets:
       - cadvisor:8090
   - job_name: app
+    metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
     - targets:
