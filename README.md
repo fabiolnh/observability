@@ -103,4 +103,7 @@ OBS: You can use Elastic Cloud to configure the whole environment using the clou
 - The target (apps that will get the metrics) configuration stays in "prometheus.yml" file of prometheus
 - You can configurate a target of its own prometheus to get the metrics from it (from its HttpServer)
 - There is a web interface in prometheus, but not so good to interact. The best way is to use other app, such as Grafana
-- 
+
+## Metrics
+- cAdvisor: Use it to collect container metrics (https://github.com/google/cadvisor). Remember: Configure it as a prometheus target
+- Grafana: use it to build dashboards. There are a lot of dashboards created by the community
