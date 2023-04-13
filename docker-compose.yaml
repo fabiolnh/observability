@@ -1,8 +1,8 @@
 version: "3"
 
-services:  
+services:
 
-  elasticsearch:
+  elasticsearch: # Logs (ElasticStack)
     image: docker.elastic.co/elasticsearch/elasticsearch:7.13.0
     container_name: elasticsearch
     environment:
@@ -24,7 +24,7 @@ services:
     networks: 
         - observability
    
-  kibana:
+  kibana: # Dashboards (ElasticStack)
     image: docker.elastic.co/kibana/kibana:7.13.0
     container_name: kibana
     ports:
@@ -35,7 +35,7 @@ services:
     networks: 
         - observability
 
-  metricbeat:
+  metricbeat: # Get CPU, Memory, System Processes, etc. (ElasticStack)
     image: docker.elastic.co/beats/metricbeat:7.13.0
     container_name: metricbeat
     user: root
@@ -47,7 +47,7 @@ services:
       - observability
     command: -e --strict.perms=false
     
-  heartbeat:
+  heartbeat: ## Asks to the service: It is alive? (ElasticStack)
     image: docker.elastic.co/beats/heartbeat:7.13.0
     container_name: heartbeat
     volumes:      
@@ -59,7 +59,7 @@ services:
     command: -e --strict.perms=false
 
 
-  apm:
+  apm: ## Tracing (ElasticStack)
     image: docker.elastic.co/apm/apm-server-oss:7.13.0
     container_name: apm
     volumes:      
@@ -70,6 +70,55 @@ services:
     networks: 
       - observability
     command: -e --strict.perms=false
+
+  prometheus: ## Metric Collector (Other Stack)
+    image: prom/prometheus
+    container_name: prometheus
+    depends_on:
+      - cadvisor
+    ports:
+      - 9090:9090
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./prometheus-and-grafana/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - observability
+
+  grafana: # Dashboards (Other stack)
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    container_name: grafana
+    depends_on:
+      - prometheus
+    networks:
+      - observability
+
+  cadvisor: # To collect container metrics (Other stack)
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    user: root
+    ports:
+      - 8090:8090
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - observability
+
+  demo:
+    build:
+      context: /app/
+      dockerfile: Dockerfile
+    image: demo:latest
+    container_name: demo
+    ports:
+      - "8080:8080"
+    networks:
+      - observability
 
 networks:
   observability:
