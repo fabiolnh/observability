@@ -92,7 +92,8 @@ OBS: You can use Elastic Cloud to configure the whole environment using the clou
      3) Histogram:
       * Measurement is sample-based
       * Can aggregate values
-      * Ex: during a time, we can aggregate some information
+      * Ex: During a time, we can aggregate some information
+      * Ex: How many visits you had in X Seconds
      4) Summary:
       * Similar to Histogram. Commonly, Summary is not used. We use Histogram.
       * The difference: the values are calculated in the server, not in the Prometheus.
