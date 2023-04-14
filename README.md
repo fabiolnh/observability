@@ -105,7 +105,7 @@ OBS: You can use Elastic Cloud to configure the whole environment using the clou
 - You can configurate a target of its own prometheus to get the metrics from it (from its HttpServer)
 - There is a web interface in prometheus, but not so good to interact. The best way is to use other app, such as Grafana
 
-## Metrics
-- cAdvisor: Use it to collect container metrics (https://github.com/google/cadvisor). Remember: Configure it as a prometheus target
-- Grafana: use it to build dashboards. There are a lot of dashboards created by the community
+## Collecting Metrics from Prometheus
+- cAdvisor: Use it to collect container metrics (https://github.com/google/cadvisor). Remember: Configure the prometheus to collect metrics from it (target)
+- Grafana: use it to build dashboards getting data from prometheus. There are a lot of dashboards created by the community
 - You can configure alarms in Grafana (as an example, you can send a msg to your Telegram)
