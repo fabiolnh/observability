@@ -37,6 +37,7 @@ Example Log:
   "logger": "com.fabiolnh.api.common.Teste",
   "level": "INFO",
   "context": {
+    "ipSource": "1.2.3.4"
     "path": "/api/v1/teste/abc",
     "method": "POST",
     "port": "8080",
